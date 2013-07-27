@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: javascript | LearnLog]]></title>
+  <link href="http://samsel.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://samsel.github.io/"/>
+  <updated>2013-07-27T15:53:26-07:00</updated>
+  <id>http://samsel.github.io/</id>
+  <author>
+    <name><![CDATA[Sam Selvanathan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[undefined in Javascript]]></title>
+    <link href="http://samsel.github.io/blog/2013/07/27/undefined-in-javascript/"/>
+    <updated>2013-07-27T13:57:00-07:00</updated>
+    <id>http://samsel.github.io/blog/2013/07/27/undefined-in-javascript</id>
+    <content type="html"><![CDATA[<p>Javascript is so flexible that sometimes not knowing to use it safely
+would end up causing pitfalls. This post explains the traps of <em>undefined</em>
+in Javascript and ways to overcome them.</p>
+
+<p>Undefined is not a Javascript reserved keyword but it is one of its six primitive data types.</p>
+
+<p><code>javascript Data types in Javascript
+string, number, boolean, null, undefined, object
+</code></p>
+
+<p>Undefined is implemented in Javascript as a property of the global object with value <em>undefined</em>.
+It is the the default value for all initialized variables with no assignment and functions
+without any return value.</p>
+
+<p>``` javascript Type Test
+//example 1
+typeof undefined // &ldquo;undefined&rdquo;</p>
+
+<p>//example 2
+var a;
+typeof a // &ldquo;undefined&rdquo;</p>
+
+<p>//example 3
+function sample() {}
+sample() // returns undefined</p>
+
+<p>//example 4
+var b = {};
+b.test // returns undefined
+```</p>
+
+<p>The interesting thing about undefined in Javascript is that it is
+mutable. The language allows different values of different data types
+to be set on <em>undefined</em> which might cause some worse programming behaviours.
+Some examples of assigning values to <em>undefined</em> are as below.</p>
+
+<p>``` javascript Assign values to undefined</p>
+
+<p>//example 1
+var undefined = &ldquo;s&rdquo;;</p>
+
+<p>//example 2
+(function(undefined) {</p>
+
+<pre><code>typeof undefined; // "string"
+</code></pre>
+
+<p>}(&ldquo;1&rdquo;));</p>
+
+<p>//example 3
+(function(undefined) {</p>
+
+<pre><code>typeof undefined; // "number"
+</code></pre>
+
+<p>}(1));
+```</p>
+
+<p>One of the most prominant ways to avoid the above effect of assigning unwanted
+values to undefined and to make sure that undefined has it default intented value
+is to use the below pattern. It could be seen in jQuery source and a lot of plugins as well.</p>
+
+<p>``` javascript undefined reset
+(function(undefined, undefined) {</p>
+
+<pre><code>typeof undefined; // "undefined"
+</code></pre>
+
+<p>}(&ldquo;1&rdquo;));
+```</p>
+
+<p>Another way to make sure that undefined is set properly is to use the
+uncommon Javascript language feature <em>void</em>.
+It is a function in javascript which when used with an expression, executes the
+expression and returns <em>undefined</em>.</p>
+
+<p>``` javascript undefined reset
+//example 1
+var a = void (2+3);
+typeof a // &ldquo;undefined&rdquo;</p>
+
+<p>//example 2
+void(0); // returns undefined
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
