@@ -88,3 +88,11 @@ deploy:
   type: github
   repo: https://github.com/samsel/samsel.github.io.git
   branch: master
+
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+
+sitemap:
+    path: sitemap.xml      

@@ -8,3 +8,17 @@ $ git submodule sync
 $ git submodule update --init --recursive
 $ hexo server
 ```
+
+### deploy
+```bash
+$ hexo gm
+$ hexo deploy
+```
+
+#### todos
+* enable tagcloud
+```
+<div class="widget tagcloud">
+	<%- tagcloud() %>
+</div>
+```
