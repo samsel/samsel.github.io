@@ -4,6 +4,7 @@
 ```bash
 $ git clone https://github.com/samsel/samsel.github.io.git
 $ cd samsel.github.io
-$ git clone https://github.com/samsel/hexo-theme-casper.git themes/casper
+$ git submodule sync
+$ git submodule update --init --recursive
 $ hexo server
 ```
