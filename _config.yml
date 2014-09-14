@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Learn Log!
 subtitle:
 description:
-author: John Doe
-email:
+author: Sam Selvanathan
+email: sjasel@gmail.com
 language:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://samsel.github.io
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
@@ -74,7 +74,7 @@ per_page: 10
 pagination_dir: page
 
 # Disqus
-disqus_shortname:
+disqus_shortname: samsels
 
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
