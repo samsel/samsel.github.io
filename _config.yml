@@ -76,6 +76,8 @@ pagination_dir: page
 # Disqus
 disqus_shortname: learnlog
 
+google_analytics: UA-42793939-1
+
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
@@ -95,4 +97,4 @@ feed:
     limit: 20
 
 sitemap:
-    path: sitemap.xml      
+    path: sitemap.xml  
