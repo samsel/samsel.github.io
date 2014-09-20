@@ -8,5 +8,5 @@ layout: about
   I love to build web and ios native applications. 
   I post all my learning and thoughts in this site.
 
-  [github](https://github.com/samsel "github") [linkedin](https://www.linkedin.com/in/sjasel "linkedin")
+  [github](https://github.com/samsel "github") - [twitter](https://twitter.com/sam_twite "twitter") - [linkedIn](https://www.linkedin.com/in/sjasel "linkedIn")
 </p>
