@@ -1,5 +1,5 @@
 title: undefined in JavaScript
-date: 2014-09-11 20:13:22
+date: 2013-07-11 20:13:22
 tags: ["javascript"]
 ---
 
