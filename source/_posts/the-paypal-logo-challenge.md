@@ -59,7 +59,6 @@ ctx.bezierCurveTo(headWidth,y,
 // this leg to the Head of 'P'
 ctx.quadraticCurveTo(legWidth, legHeight, legWidth, legHeight+cornerRadius);
 ctx.lineTo(legWidth, height-cornerRadius);
-
 // draw the bottom potion of the leg and 
 // the bottom two rounded corners
 // for the leg of 'P'
