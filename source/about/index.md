@@ -4,7 +4,7 @@ layout: about
 ---
 
 <p align="center">
-  I am Software engineer currently working at PayPal.
+  I am a software engineer currently working at PayPal.
   I love to build web and ios native applications. 
   I post all my learning and thoughts in this site.
 
