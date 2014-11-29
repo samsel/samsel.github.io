@@ -1,6 +1,4 @@
-title: about
 date: 2014-09-20 10:16:06
-layout: about
 ---
 
 <p align="center">
