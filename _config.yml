@@ -81,7 +81,7 @@ google_analytics: UA-42793939-1
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
-theme: casper
+theme: mabao
 exclude_generator:
 
 # Deployment
