@@ -13,8 +13,8 @@ $ hexo server
 
 ### deploy
 ```bash
-$ hexo gm
-$ hexo deploy
+$ hexo optimize
+$ hexo o -d
 ```
 
 ### todos
