@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[learn log]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://samsel.github.io/"/>
+  <updated>2014-12-20T21:00:04.946Z</updated>
+  <id>http://samsel.github.io/</id>
+  
+  <author>
+    <name><![CDATA[Sam Selvanathan]]></name>
+    <email><![CDATA[sjasel@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Bower - for a NPM veteran]]></title>
+    <link href="http://samsel.github.io/2014/12/07/Bower-for-a-NPM-veteran/"/>
+    <id>http://samsel.github.io/2014/12/07/Bower-for-a-NPM-veteran/</id>
+    <published>2014-12-08T07:44:19.000Z</published>
+    <updated>2014-12-20T20:55:50.000Z</updated>
+    <content type="html"><![CDATA[<p>Me being a <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a> freak, am used to the <a href="https://www.npmjs.org/" target="_blank" rel="external">npm</a> ecosystem. But the very first time I came across <a href="http://Bower.io/" target="_blank" rel="external">Bower</a>, I was confused in getting a grasp of what Bower was and why would any developer need it. Over a period of few months since then, I really got to deep dive into Bower and I was so amazed that how I was working on web projects without using Bower before. In this article, we are going to look at some compelling reasons to start using Bower as a front-end dependency manager wearing the Node.js hat.</p>
+<h4 id="What_is_Bower_after_all?">What is Bower after all?</h4>
+<p><sup><em>“Web sites are made of lots of things — frameworks, libraries, assets, utilities, and rainbows. Bower manages all these things for you.”</em>  - Source:  <a href="http://Bower.io/" target="_blank" rel="external">Bower.io</a> </sup><br>In simple terms, Bower is a system that takes care of <em>managing</em> the app’s <em>dependencies</em>.<br>By <strong>managing</strong> meaning, Bower answers the below:</p>
+<pre><code>+ what dependency to <span class="operator"><span class="keyword">install</span>?
++ <span class="keyword">where</span> <span class="keyword">to</span> <span class="keyword">install</span>?
++ what <span class="keyword">version</span> <span class="keyword">to</span> <span class="keyword">use</span>?
++ <span class="keyword">where</span> <span class="keyword">is</span> the dependency located?</span>
+</code></pre><p><strong>dependencies</strong> could be framework, library, bunch of files, etc.. that your web app depends upon. Example: In my project I might be using jQuery, Backbone, Bootstrap. All those could be dependencies, potentially managed by Bower. Sounds a lot like npm? Bower and npm share many things in common. They both share the common goal of being a great dependency manager and they follow very similar semantics. For example, both have a <code>json</code> manifest for the package info, have registries for package sharing, expose a powerful command line interface written in JavaScript, etc. but there are subtle differences that makes Bower standout as a front end package manager. </p>
+<h4 id="How_is_Bower_different_from_npm?">How is Bower different from npm?</h4>
+<p>Even though Bower and npm are dependency management tools, the main difference is that npm facilitates nested dependencies using the commonJS style specification. But Bower on the other hand doesn’t enforce any dependency structure and also it delegates the responsibility of dependency resolution on to the consumer of the package. Bower’s concept of flat dependency makes it a powerful package manager for the front end as it shoots for a minimization of resource loading by avoiding duplicate loading of the same dependency from multiple packages. The only downside is that the package consumer is made to setup all the required dependencies. To clearly understand what I mean by setup, consider the widely popular web application framework <a href="http://backbonejs.org/" target="_blank" rel="external">backbone.js</a>. Backbone itself has a hard dependency on Underscore library. Like a other good dependency manager, both Bower and npm add Underscore as a dependency in their package manifest file, but npm takes it one step further by internally setting up the Underscore when the consumer of the package uses Backbone but Bower doesn’t do that. The consumer has to manually add Underscore either to their html file manually or to the package loader (AMD based Require.js) based on how the consumer’s project is written.</p>
+<script src="https://gist.github.com/samsel/051fcd2b2b5085d1c40a.js"></script>
+
+<h4 id="How_to_setup_Bower?">How to setup Bower?</h4>
+<script src="https://gist.github.com/samsel/a8a8f8e99e2432d246b5.js"></script>
+
+<p>Interestingly, Bower’s command line interface can be installed via npm. It’s just a one time thing and from then on, in any project that I want to use Bower, I can simply do</p>
+<script src="https://gist.github.com/samsel/6a035ae932ceab470677.js"></script>
+
+<p>The complete list of commands supported by Bower can be found <a href="http://Bower.io/docs/api/" target="_blank" rel="external">here</a>. Similar to npm’s package.json, Bower uses a manifest file called <code>Bower.json</code> to store the meta info about the package contents. A sample manifest could look something like below</p>
+<script src="https://gist.github.com/samsel/b2a24a65032c34c615dd.js"></script>
+
+
+<h4 id="The_Bower_registry">The Bower registry</h4>
+<p>Bower enables sharing of modules by publishing to the Bower registry. As of today, Bower registry is open without any authentication or user management. So anybody can publish anything to bower registry on a first come first serve basis as long as they meet Bower’s package requirements of having a valid spec file <code>bower.json</code>. The other unique thing about Bower registry is that it simply relies on the package being hosted in Github repository accessible to itself. Bower registry does not deal with storing tarballs of packages but rather just stores a hash of the package name to the Github url where the package is located.</p>
+<script src="https://gist.github.com/samsel/df53d55b8727b84ee1bb.js"></script>
+
+
+<p>In conclusion, Bower is a great step forward for enhancing the workflow of modern web application development. Gone are those days of downloading every front end library off their respective websites to get going on a web project. Given Bower’s flat dependency tree of dependency management and unrestrictive file type contents to have images, CSS, JavaScript etc as contents of a package, it naturally fits as a great front-end dependency manager.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Me being a <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a> freak, am used to the <a href="https://www.npmjs.org/"]]>
+    </summary>
+    
+      <category term="Bower" scheme="http://samsel.github.io/tags/Bower/"/>
+    
+      <category term="frontend" scheme="http://samsel.github.io/tags/frontend/"/>
+    
+      <category term="javascript" scheme="http://samsel.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Powerful Backbone.js Principles]]></title>
+    <link href="http://samsel.github.io/2014/11/25/powerful-backbonejs-principles/"/>
+    <id>http://samsel.github.io/2014/11/25/powerful-backbonejs-principles/</id>
+    <published>2014-11-26T02:17:18.000Z</published>
+    <updated>2014-12-20T20:55:50.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://backbonejs.org/" title="Backbone.js" target="_blank" rel="external">Backbone.js</a> is a great framework for building web applications in a sane way. Given minimalism philosophy as its core strength, it passes the responsibilty of writing well maintanable business logic on top of Backbone to the developer. Some of the techniques and best practices that I figured out lately after working on multiple Backbone.js projects are below.</p>
+<h5 id="1-_Keep_Backbone_Modules_Simple">1. Keep Backbone Modules Simple</h5>
+<p>Adopt minimalism from Backbone.js and keep modules tight and simple. Breakdown code into smaller reusable modules for testability and readability. In the below example, we have a <code>BaseModel</code> from which all models are extended. This way we can start abstracting out the commanalities into separate modules. A sample use case would be that; you might want to do your app specific logic for every instance of model, like pinging analytics. The key thing to note is that, we call the BaseModel’s initialize from the dervied model. Through the prototype chain, this executes the respective function from the module that we extended.</p>
+<script src="https://gist.github.com/samsel/1c3ae4487e3482057d67.js"></script>
+
+
+<h5 id="2-_Create_a_manager_or_controller">2. Create a manager or controller</h5>
+<p>Backbone is great that it provides Models/Collections for business logic and data, Views for DOM stuff and Router for the browser history state. But this leaves the most important thing to the developer, that is tying all these together to create the application. Any app needs to have a bootstrap module to do the startup work when its loaded the first time in the browser. This can be accomplised by coding up a manager or controller. This would be a Singleton and this would be the place to boot up the app and do things like the view to show, set up jQuery config, etc.. This singleton could also serve as the cental hub that could be use as a data bus or messaging bus for the entire app.</p>
+<h5 id="3-_Make_dumb_views">3. Make dumb views</h5>
+<p>Literally try to make the views as dumb as possible. Shove all the business logic to models and always back the views with a template. Ideally views should just deal with DOM operations and updating the state of the model. All the other side effects of updating state to the model should be handled by events the model spits out. Often in large scale apps its important to pull the routing and navigation out of the views and move them into controllers.</p>
+<h5 id="4-_Scope_your_DOM_Accessors">4. Scope your DOM Accessors</h5>
+<p>Backbone View provides a cached version of the view object that can be accessed using <code>viewObject.$el</code>. Its preferred to use this cached selector to do DOM manipulations because all the operations are scoped to the cached selector and they naturally run faster.</p>
+<h5 id="5-_Do_n/w_ops_in_model">5. Do n/w ops in model</h5>
+<p>Often times, it might be tempting to do network calls from views, but don’t use $.ajax ever in views! Do all network operations inside the model. Design the app in such a way that all data operations are scoped to models, this way we keep the app consistent and also get the poweful data manipulation apis of Backbone Model plus MVC is not violated. </p>
+<h5 id="6-_Build_views_as_components">6. Build views as components</h5>
+<p>Any web application that accepts user input would have characteristics like data type restriction, validation, ranges, etc.. Abstract those user interface elements with their characteristics coded up in one bundle as a component. View components help in avoiding Backbone view code smell limiting the DOM apis surfacing inside them. Below is an example of a phone number view component inside a Backbone view.</p>
+<script src="https://gist.github.com/samsel/891fd2f1c319d3cea531.js"></script>
+
+<h5 id="7-_Use_a_module_loader">7. Use a module loader</h5>
+<p>If you have the practice of allowing only one entity/module in a file along with Backbone’s notion to separate out things into nice views/models you will see a mammoth file count as the app grows. It soon becomes harder to include them in the html especially if order of loading matters. So simply put, its best to leave the loading dependencies task to a JavaScript module loader like <a href="http://requirejs.org" target="_blank" rel="external">requirejs</a>.</p>
+<p><br></p>
+<p>On a ending note, not everything is applicable everywhere or for everyone. But I believe that the above pointers are great for anyone venturing into Backbone apps. With the Backbone community so vibrant, most often the things that we need are already available from the community’s contribution and that we don’t need to write everything from scratch. <a href="http://backplug.io/" target="_blank" rel="external">backplug.io</a> is a great aggregator of Backbone plugins and for anybody looking to deep dive into Backbone, <a href="http://addyosmani.github.io/backbone-fundamentals/" target="_blank" rel="external">backbone-fundamentals</a> is a great start.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="http://backbonejs.org/" title="Backbone.js" target="_blank" rel="external">Backbone.js</a> is a great framework for building web]]>
+    </summary>
+    
+      <category term="backbone.js" scheme="http://samsel.github.io/tags/backbone-js/"/>
+    
+      <category term="single-page-apps" scheme="http://samsel.github.io/tags/single-page-apps/"/>
+    
+      <category term="javascript" scheme="http://samsel.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[The PayPal Logo Challenge]]></title>
+    <link href="http://samsel.github.io/2014/09/20/the-paypal-logo-challenge/"/>
+    <id>http://samsel.github.io/2014/09/20/the-paypal-logo-challenge/</id>
+    <published>2014-09-20T21:19:01.000Z</published>
+    <updated>2014-12-20T20:55:50.000Z</updated>
+    <content type="html"><![CDATA[<p>Recently, I came across <a href="https://www.paypal-engineering.com/2014/09/04/the-paypal-logo-challenge-one-solution-pseudo-elements/" title="this blog post" target="_blank" rel="external">an interesting blog post</a> in PayPal Engineering blog site. It was an article about how the author curated a solution to generate PayPal’s logo using just CSS3. One thing that kept me thinking was that the author at the end of the post, challenges and wishes to see other CSS based implementations of the PayPal logo. I, being a JavaScript enthusiast, decided to take up the challenge and implement the same using JavaScript!</p>
+<h4 id="How_was_it_done?">How was it done?</h4>
+<p>The evolution of HTML5 gave us the super powerful HTML element Canvas and a set of JavaScript APIs to draw and manipulate graphic contexts. This proved the web could do many powerful things than just displaying a bunch of text and images. I am going to use the 2D Context Rendering APIs to draw the PayPal logo onto a Canvas.</p>
+<p><em>Step 1: Define the Canvas element into which the logo will be drawn.</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">canvas</span> <span class="attribute">id</span>=<span class="value">'paypal-logo'</span> <span class="attribute">width</span>=<span class="value">'300'</span> <span class="attribute">height</span>=<span class="value">'300'</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p><em>Step 2: In JavaScript, start grabbing a 2D render context reference to the same canvas element.</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'paypal-logo'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div></pre></td></tr></table></figure>
+
+<p><em>Step 3: Define some values to characterize the appearance of ‘P’. I break down the letter ‘P’ into two parts and call the top part as ‘Head’ and the bottom part as ‘Leg’.</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// define size </span></div><div class="line"><span class="comment">// (some number which can be used to relatively scale up/down the 'P')</span></div><div class="line"><span class="keyword">var</span> size = <span class="number">100</span>;</div><div class="line"><span class="comment">// define the start point co-ordinates in the canvas 2d space.</span></div><div class="line"><span class="keyword">var</span> x = <span class="number">20</span>;</div><div class="line"><span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line"><span class="comment">// characteristic definitions for the appearance of Letter 'P'</span></div><div class="line"><span class="keyword">var</span> cornerRadius = <span class="number">4</span>;</div><div class="line"><span class="keyword">var</span> height = y + size;</div><div class="line"><span class="keyword">var</span> legWidth = x + size * <span class="number">0.26</span>;</div><div class="line"><span class="keyword">var</span> legHeight = height - size * <span class="number">0.4</span>;</div><div class="line"><span class="keyword">var</span> headWidth = legWidth + size * <span class="number">0.60</span>;</div><div class="line"><span class="keyword">var</span> headHeight = height - legHeight;</div><div class="line"><span class="keyword">var</span> topHeadProjection = legWidth + size * <span class="number">0.23</span>;</div><div class="line"><span class="keyword">var</span> bottomHeadCurveOffset = y + size * <span class="number">0.22</span>;</div></pre></td></tr></table></figure>
+
+<p><em>Step 4: Now, I will start to draw the letter ‘P’ on the canvas context.</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// begin the path trace on the given context</span></div><div class="line">ctx.beginPath();</div><div class="line"><span class="comment">// init the cursor to </span></div><div class="line"><span class="comment">// start drawing head of 'P'</span></div><div class="line">ctx.moveTo(x, y+cornerRadius);</div><div class="line"><span class="comment">// draw the top left curved corner and the top of</span></div><div class="line"><span class="comment">// 'P' till it starts to curve down.</span></div><div class="line">ctx.quadraticCurveTo(x, y, x+cornerRadius, y);</div><div class="line">ctx.lineTo(topHeadProjection, y);</div><div class="line"><span class="comment">// draw the curved Head portion of 'P'</span></div><div class="line">ctx.bezierCurveTo(headWidth,y, </div><div class="line">        headWidth - <span class="number">2</span>*cornerRadius, headHeight + bottomHeadCurveOffset, </div><div class="line">        legWidth+ <span class="number">2</span>*cornerRadius,legHeight); </div><div class="line"><span class="comment">// draw the right side of the leg and the </span></div><div class="line"><span class="comment">// curved potion that connects</span></div><div class="line"><span class="comment">// this leg to the Head of 'P'</span></div><div class="line">ctx.quadraticCurveTo(legWidth, legHeight, legWidth, legHeight+cornerRadius);</div><div class="line">ctx.lineTo(legWidth, height-cornerRadius);</div><div class="line"><span class="comment">// draw the bottom potion of the leg and </span></div><div class="line"><span class="comment">// the bottom two rounded corners</span></div><div class="line"><span class="comment">// for the leg of 'P'</span></div><div class="line">ctx.quadraticCurveTo(legWidth, height, legWidth-cornerRadius, height);</div><div class="line">ctx.lineTo(x+cornerRadius, height);</div><div class="line">ctx.quadraticCurveTo(x, height, x, height-cornerRadius);</div><div class="line"><span class="comment">// finish by drawing the left side of the 'P'</span></div><div class="line">ctx.lineTo(x, y+cornerRadius);</div></pre></td></tr></table></figure>
+
+<p class="explanation"><br>    sketch explaining the drawing<br><br>    <img src="/assets/paypal_logo_canvas_grid.png" alt="sketch explaining the drawing"><br></p>
+
+<p><em>Step 5: Color the drawn surface.</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// light colored 'P' in the PayPal Logo</span></div><div class="line"><span class="keyword">var</span> color = <span class="string">'rgba(23,155,215,1)'</span>;</div><div class="line"><span class="comment">// stroke and fill the drawn path with the supplied color</span></div><div class="line">ctx.fillStyle = color;</div><div class="line">ctx.fill(); </div><div class="line">ctx.strokeStyle = color;</div><div class="line">ctx.lineWidth = <span class="number">1</span>;</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+
+<p class="explanation"><br>    colored sketch<br><br>    <img src="/assets/pplogo_half.png" alt="colored sketch"><br></p>
+
+<p><em>Step 6: Next, repeat the same code above and draw another ‘P’ with a little offset so that it overlays on the existing drawing and fill it with a darker shade of blue.</em></p>
+<p><em>Step7: Finally, skew the canvas horizontally so that the logo appears a bit tilted.</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.transform(<span class="number">1</span>, <span class="number">0</span>, <span class="built_in">Math</span>.sin(-<span class="number">0.1</span>), <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+
+<p class="explanation"><br>    The finished canvas drawing looks like the below image<br><br>    <img src="/assets/pplogo_finished.png" alt="final appearance of the canvas after drawing"><br></p>
+
+
+
+<h4 id="Conclusion">Conclusion</h4>
+<p>I accomplished the challenge that I started within myself and published it as a reusable library here: <a href="https://github.com/samsel/paypal-logo-canvas" target="_blank" rel="external">https://github.com/samsel/paypal-logo-canvas</a>. A working example of the library can be found here: <a href="http://jsfiddle.net/samsel/unqrods8/3/" target="_blank" rel="external">http://jsfiddle.net/samsel/unqrods8/3/</a>.</p>
+<p>While executing this challenge, I was really overwhelmed by the power of the canvas element plus its associated JavaScript API. I wish we embrace the web more and push it to its limits!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Recently, I came across <a href="https://www.paypal-engineering.com/2014/09/04/the-paypal-logo-challenge-one-solution-pseudo-elements/" t]]>
+    </summary>
+    
+      <category term="html5" scheme="http://samsel.github.io/tags/html5/"/>
+    
+      <category term="canvas" scheme="http://samsel.github.io/tags/canvas/"/>
+    
+      <category term="javascript" scheme="http://samsel.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[undefined in JavaScript]]></title>
+    <link href="http://samsel.github.io/2013/07/11/undefined-in-JavaScript/"/>
+    <id>http://samsel.github.io/2013/07/11/undefined-in-JavaScript/</id>
+    <published>2013-07-12T03:13:22.000Z</published>
+    <updated>2014-12-20T20:55:50.000Z</updated>
+    <content type="html"><![CDATA[<p>JavaScript is very flexible that sometimes not knowing to use it safely<br>would end up causing pitfalls. This post explains the traps of <em>undefined</em><br>in JavaScript and ways to overcome them.</p>
+<p><em>undefined</em> is one of JavaScript’s six primitive data types.</p>
+<figure class="highlight javascript"><figcaption><span>data types</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string, number, boolean, <span class="literal">null</span>, <span class="literal">undefined</span>, object</div></pre></td></tr></table></figure>
+
+<p><em>undefined</em> is implemented in Javascript as a property of the global object with value <em>undefined</em>. It is the the default value for all initialized variables with no assignment and functions without any return value.</p>
+<figure class="highlight javascript"><figcaption><span>type test</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//example 1</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// "undefined"</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//example 2</span></div><div class="line"><span class="keyword">var</span> a;</div><div class="line"><span class="keyword">typeof</span> a <span class="comment">// "undefined"</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//example 3</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sample</span><span class="params">()</span> </span>{}</div><div class="line">sample() <span class="comment">// returns undefined</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//example 4</span></div><div class="line"><span class="keyword">var</span> b = {};</div><div class="line">b.test <span class="comment">// returns undefined</span></div></pre></td></tr></table></figure>
+
+<p>The interesting thing about <em>undefined</em> is that it is mutable in versions of JavaScript below EcmaScript 5. The language allows different values of different data types to be set on <em>undefined</em> which might cause some worse programming behaviours. Some examples of assigning values to <em>undefined</em> are as below.</p>
+<figure class="highlight javascript"><figcaption><span>assign values to undefined</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//example 1</span></div><div class="line"><span class="keyword">var</span> <span class="literal">undefined</span> = <span class="string">"s"</span>;</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//example 2</span></div><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(undefined)</span> </span>{ </div><div class="line">  <span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// "string"</span></div><div class="line">}(<span class="string">"1"</span>)); </div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//example 3</span></div><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(undefined)</span> </span>{ </div><div class="line">  <span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// "number"</span></div><div class="line">}(<span class="number">1</span>));</div></pre></td></tr></table></figure>
+
+<p>One of the most prominant ways to avoid the above effect of assigning unwanted values to undefined and to make sure that undefined has it default intented value is to use the below pattern. It could be seen in jQuery source and a lot of plugins as well.</p>
+<figure class="highlight javascript"><figcaption><span>undefined reset</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(undefined, undefined)</span> </span>{ </div><div class="line">	<span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// "undefined"</span></div><div class="line">}(<span class="string">"1"</span>));</div></pre></td></tr></table></figure>
+
+<p>Another way to make sure that <em>undefined</em> is set properly is to use the uncommon JavaScript language feature <em>void</em>. It is a function which when used with an expression, executes the expression and returns <em>undefined</em>.</p>
+<figure class="highlight javascript"><figcaption><span>undefined reset</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//example 1</span></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">void</span> (<span class="number">2</span>+<span class="number">3</span>);</div><div class="line"><span class="keyword">typeof</span> a <span class="comment">// "undefined"</span></div><div class="line"></div><div class="line"><span class="comment">//example 2</span></div><div class="line"><span class="keyword">void</span>(<span class="number">0</span>); <span class="comment">// returns undefined</span></div></pre></td></tr></table></figure>
+
+<p>But the best of all elegant solution would be to use strict mode. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode&quot;Strict mode&quot;" target="_blank" rel="external">Strict mode</a> in EcmaScript 5 changes all silently failing errors into throwable errors in JavaScript.</p>
+<figure class="highlight javascript"><figcaption><span>'use strict'</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>{</div><div class="line">	<span class="literal">undefined</span> = <span class="number">123</span>;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span> </span>{</div><div class="line"><span class="pi">	'use strict'</span>;</div><div class="line">	<span class="literal">undefined</span> = <span class="number">123</span>;</div><div class="line">}</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// foo function can be executed without any errors</span></div><div class="line">foo();</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// but, executing bar, throws error because of the strict mode.</span></div><div class="line">bar();</div><div class="line"><span class="built_in">TypeError</span>: Cannot assign to read only property <span class="string">'undefined'</span> of [object <span class="built_in">Object</span>]</div></pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>JavaScript is very flexible that sometimes not knowing to use it safely<br>would end up causing pitfalls. This post explains the traps of]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://samsel.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+</feed>
